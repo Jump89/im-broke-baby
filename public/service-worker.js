@@ -26,3 +26,23 @@ self.addEventListener('install', function(e) {  // function to save all data in 
     )
 });
 
+// Dleted outdated caches
+self.addEventListener('activate', function(e) {
+    e.waitUntil(
+        caches.keys().then(function(keys) {
+            let keepList = keys.filter((key) => {
+                return key.indexOf(APP_PREFIX)
+            });
+            keepList.push(CACHE);
+
+            return Promise.all(
+                keys.map(function(key, i) {
+                    if(keepList.indexOf(key) === -1) {
+                        console.log('deleting cache: ', keys[i]);
+                        return caches.delete(keys[i]);
+                    }
+                })
+            )
+        })
+    )
+});
