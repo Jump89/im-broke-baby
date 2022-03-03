@@ -13,7 +13,9 @@ const FILES_TO_CACHE = [
     "./icons/icon-152x152.png",
     "./icons/icon-384x384.png",
     "./icons/icon-512x512.png",
-    "./icons/icon-192x192.png"
+    "./icons/icon-192x192.png",
+    "./manifest.json",
+    "./js/idb.js"
 ]
 
 self.addEventListener('install', function(e) {  // function to save all data in FILES_TO_CACHE to browser cache and useoffline 
