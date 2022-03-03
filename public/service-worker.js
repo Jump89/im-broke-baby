@@ -33,7 +33,7 @@ self.addEventListener('activate', function(e) {
     e.waitUntil(
         caches.keys().then(function(keys) {
             let keepList = keys.filter((key) => {
-                return key.indexOf(APP_PREFIX)
+                return key.indexOf(CACHE)
             });
             keepList.push(CACHE);
 
