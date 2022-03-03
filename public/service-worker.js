@@ -47,6 +47,7 @@ self.addEventListener('activate', function(e) {
     )
 });
 
+// listins to api url if store in cache
 self.addEventListener('fetch', function(e) {
     e.respondWith(
         caches.match(e.request).then(function(request) {
